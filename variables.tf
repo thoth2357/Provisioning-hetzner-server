@@ -11,7 +11,7 @@ variable "server_type" {
     default = "cx11"
 }
 
-variable "os_type" {
+variable "os_image" {
     default = "ubuntu-20.04"
 }
 
