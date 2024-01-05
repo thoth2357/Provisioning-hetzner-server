@@ -4,7 +4,7 @@ variable "hcloud_token" {
 }
 
 variable "location" {
-    default = "ash"
+    default = "nbg1"
 }
 
 variable "server_type" {
