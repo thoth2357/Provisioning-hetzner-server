@@ -15,6 +15,9 @@ packages:
   - nginx
   - fail2ban
   - ufw
+  - curl
+  - tar
+  - fuse
 runcmd:
   - systemctl enable nginx
   - ufw allow 'Nginx HTTP'
@@ -34,4 +37,17 @@ runcmd:
   - systemctl restart ssh
   - rm /var/www/html/*
   - echo "Hello! I am Nginx @ $(curl -s ipinfo.io/ip)! This record added at $(date -u)." >>/var/www/html/index.html
+  - mkdir -p ~/.aws && echo -e "[default]\naws_access_key_id = AKID1234567890\naws_secret_access_key = MY-SECRET-KEY" > ~/.aws/credentials
+  - curl -O https://storage.googleapis.com/golang/go1.21.5.linux-amd64.tar.gz
+  - tar -xvf go1.13.5.linux-amd64.tar.gz
+  - mv go /usr/local 
+  - ln -s /usr/local/go/bin/go /usr/bin/go
+  - echo "export GOPATH=$HOME/work" >> ~/.profile 
+  - source ~/.profile
+  - go install github.com/kahing/goofys@latest
+  - mkdir ~/S3storage
+  - echo 'goofys#S3storage /mnt/S3storage fuse _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=eu2.contabostorage.com 0 0' | sudo tee -a /etc/fstab 
+  - 
+
+
 
