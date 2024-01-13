@@ -7,3 +7,8 @@ resource "hcloud_ssh_key" "secondary-ssh-key" {
 	name = "mog-ssh-key"
 	public_key = file("~/.ssh/mog_cyberpower_key.pub")
 }
+
+resource "hcloud_ssh_key" "secondary2-ssh-key" {
+	name = "mog-macbook-ssh-key"
+	public_key = file("~/.ssh/mog_macbook_key.pub")
+}
