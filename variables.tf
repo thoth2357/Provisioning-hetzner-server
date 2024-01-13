@@ -12,6 +12,6 @@ variable "server_type" {
 }
 
 variable "os_image" {
-    default = "ubuntu-20.04"
+    default = "ubuntu-22.04"
 }
 

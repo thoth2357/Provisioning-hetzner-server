@@ -1,13 +1,14 @@
 resource "hcloud_server" "webserver" {
-    name        = "web-server"
+    name        = "OSI-Dev-Server"
     server_type = var.server_type
     image       = var.os_image
     location    = var.location
     backups = "false"
-    ssh_keys    = [hcloud_ssh_key.primary-ssh-key.id]
+    firewall_ids = [hcloud_firewall.default.id, hcloud_firewall.default-egress.id]
+    ssh_keys    = [hcloud_ssh_key.primary-ssh-key.id, hcloud_ssh_key.secondary-ssh-key.id]
     labels = {
         type = "web"
-        purpose = "OSI-LMS-SERVER"
+        purpose = "OSI-Dev-Server"
     }
     user_data = file("cloud-config.yml")
 }
