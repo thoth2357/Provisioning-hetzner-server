@@ -7,7 +7,7 @@ users:
     hashed_passwd: "$6$rounds=500000$YTETrUVvMmEFRUMG$Ioc7.t6cnxuW8NekY231yROkZTYDykJ83J/BifgJyzl3czOL1wMniXYg1gFSN/aOT4nPMgRoGGH7qvXRGCEJS/"
     ssh_authorized_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC2np5I4IARUn0W2Z/+LCXBlxDVGWldSibGn/oidLzmzgUF2vFk6La1r/4yR9tEcV/rr2+WLyogq1wR95oULUg3GkSQSvIsacdXYuqoj41uteAm9eIcNdlNLbqdQGvRSSmsBJ3nZcntDp6idwXY56BHrM5xo454N6MKKXtNWACUGFiRUUC8y7wFCgixEKZu44vM45iwrPAfJRE1eaDAh0bgn440tszfIEvSgGv6wZ+zrqOEsKl8L3/axTLeBU/j4HCXiM69UHHTtwjIRDyApx0ZPIja89CXOskXNVJCX75kAA8qeA9Td/RWmWoxdBL1E1+BIQcf+u8iOkKn3VIwqQeidsKqqhoyEckQmNkkE0kbB91pRFzS9iS4EftEJEmPF2qxQTwz9QvVXz5phEZznUN3QtiAsWUY3ZHg6ug5W/3yGQDyANv1pSEAMWt4omhp2sr5k24q74+Ri+ZULGhiWO0ugkcAOEB+0yzZRRdlkbXByyR+Kp10y+7gCEBdkoNyoVWS4FHNELxPlUxBYsYS10af7I4i4g+DSV2TFs6QDsJd2tdiJZQMvdS3zVQxRjlW3JZ146W17VC0HGLWSARoNADEddIDYDoya1rC3BNuKoLa4gQmXqUpSbCXX26/217NSJuwkM175Qn4EaPA3Rvo9D5uJzna5wSFWlTpf59Wnpq3TQ== mog@Cyberpowerpcmog
-      
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6C9apteOrox4nxGLlz1PlHnUB3ZGWT4VcWGCf52p6DMonHSCw2bqrDakeb9Bfp2PLhQb5i8K9nqsK0HkeOdY8WARFwhhgZs72TmZrMNR8DBAf2d2oNzacv/IbsEFdMT7MMRwkgUeXX4rY+zUmLHi7NPx578FUjZXpu6UC1pGReX7kQvbUkkEZycB9Zcc5UNOA+H5TDggY/0u0UNh3qXRgQjPgz3hG6LrVju6G6noeRo2ttfFLMfRg4fMgZJmUHTHEbPZpzcOboMn0t9HbaZ+8uMDn3INud5PJrzQku4mo7StZLJAruqTPRpB9iE0UdaMyiac8Mq1ldT+zaNkpzMI1K1HppHztreeLg/s+/+eRUjsOguyIX1KIMkEPrA6BI/6G2V913dXh3XyeYQ4ccS6YYA2PiPz8eqk9wWD5vdypzY7Y78NdevbZnus7XbJcyhL5q3h4GWPGExteHFoOWLQNXcCHLWCg1HvNKERw8aLHRsA2EAljgiBD0Kyklfe8Fm8= mogobahor@Mogs-MBP
   - name: devops
     groups: users, admin
     sudo: ALL=(ALL) NOPASSWD:ALL
@@ -44,17 +44,17 @@ runcmd:
   - systemctl restart ssh
   - rm /var/www/html/*
   - echo "Hello! I am Nginx @ $(curl -s ipinfo.io/ip)! This record added at $(date -u)." >>/var/www/html/index.html
-  - mkdir -p ~/.aws && echo -e "[default]\naws_access_key_id = AKID1234567890\naws_secret_access_key = MY-SECRET-KEY" > ~/.aws/credentials
-  - curl -O https://storage.googleapis.com/golang/go1.21.5.linux-amd64.tar.gz
-  - tar -xvf go1.13.5.linux-amd64.tar.gz
-  - mv go /usr/local 
-  - ln -s /usr/local/go/bin/go /usr/bin/go
-  - echo "export GOPATH=$HOME/work" >> ~/.profile 
-  - source ~/.profile
-  - go install github.com/kahing/goofys@latest
-  - mkdir ~/S3storage
-  - echo 'goofys#S3storage /mnt/S3storage fuse _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=eu2.contabostorage.com 0 0' | sudo tee -a /etc/fstab 
-  - 
+  # - mkdir -p ~/.aws && echo -e "[default]\naws_access_key_id = AKID1234567890\naws_secret_access_key = MY-SECRET-KEY" > ~/.aws/credentials
+  # - curl -O https://storage.googleapis.com/golang/go1.21.5.linux-amd64.tar.gz
+  # - tar -xvf go1.13.5.linux-amd64.tar.gz
+  # - mv go /usr/local 
+  # - ln -s /usr/local/go/bin/go /usr/bin/go
+  # - echo "export GOPATH=$HOME/work" >> ~/.profile 
+  # - source ~/.profile
+  # - go install github.com/kahing/goofys@latest
+  # - mkdir ~/S3storage
+  # - echo 'goofys#S3storage /mnt/S3storage fuse _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=eu2.contabostorage.com 0 0' | sudo tee -a /etc/fstab 
+  # - 
 
 
 
