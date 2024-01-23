@@ -4,7 +4,7 @@ resource "hcloud_server" "webserver" {
     image       = var.os_image
     location    = var.location
     backups = "false"
-    firewall_ids = [hcloud_firewall.default.id, hcloud_firewall.default-egress.id]
+    firewall_ids = []
     ssh_keys    = [hcloud_ssh_key.primary-ssh-key.id, hcloud_ssh_key.secondary-ssh-key.id, hcloud_ssh_key.secondary2-ssh-key.id]
     labels = {
         type = "web"
